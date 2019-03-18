@@ -87,29 +87,6 @@ map.on('load', () => {
 		});
 });
 
-// Load and add list GeoJSON layers
-map.on('style.load', function () {
-
-// Add the data to your map as a layer
-map.addLayer({
-id: "locations",
-type: 'symbol',
-
-// Add a GeoJSON source containing place coordinates and information.
-source: {
-type: 'geojson',
-data: stores
-},
-layout: {
-'icon-image': 'circle-15',
-'icon-allow-overlap': true,
-}
-});
-
-// Initialize the list
-buildLocationList(stores);
-});
-
 // Add an event listener for when a user clicks on the map
 map.on('click', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
