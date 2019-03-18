@@ -1,0 +1,453 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* General */
+body {
+	margin: 0;
+	padding: 0;
+	padding: 2.25em 1.6875em;
+	background-image: -webkit-repeating-linear-gradient(135deg, rgba(105,221,118,.3), rgba(105,221,118,.3) 1px, transparent 2px, transparent 2px, rgba(105,221,118,.3) 3px);
+	background-image: -moz-repeating-linear-gradient(135deg, rgba(105,221,118,.3), rgba(105,221,118,.3) 1px, transparent 2px, transparent 2px, rgba(105,221,118,.3) 3px);
+	background-image: -o-repeating-linear-gradient(135deg, rgba(105,221,118,.3), rgba(105,221,118,.3) 1px, transparent 2px, transparent 2px, rgba(105,221,118,.3) 3px);
+	background-image: repeating-linear-gradient(135deg, rgba(105,221,118,.3), rgba(105,221,118,.3) 1px, transparent 2px, transparent 2px, rgba(105,221,118,.3) 3px);
+	-webkit-background-size: 4px 4px;
+	-moz-background-size: 4px 4px;
+	background-size: 4px 4px;
+}
+body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) input:focus, body:not(.user-is-tabbing) select:focus, body:not(.user-is-tabbing) textarea:focus {
+	outline: none;
+}
+/* Root Font Styles */
+* {
+	font-family: 'Lato', Helvetica, sans-serif;
+	color: #333447;
+	line-height: 1.5;
+}
+/* Typography */
+h1 {
+	font-size: 2.5rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.375rem;
+}
+h4 {
+	font-size: 1.125rem;
+}
+h5 {
+	font-size: 1rem;
+}
+h6 {
+	font-size: 0.875rem;
+}
+p {
+	font-size: 1.125rem;
+	font-weight: 200;
+	line-height: 1.8;
+}
+.font-light {
+	font-weight: 300;
+}
+.font-regular {
+	font-weight: 400;
+}
+.font-heavy {
+	font-weight: 700;
+}
+/* Mapbox Map */
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+}
+/* Main Code Block */
+.logo-container {
+	height: 70px;
+	width: 70px;
+	position: fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	background-color: #69dd76;
+}
+div.logo {
+	z-index: 10;
+	width: 40px;
+	height: 40px;
+	background-image: url("../Assets/Yosemite-logo.svg");
+	background-repeat: no-repeat;
+	margin: 15px 15px 15px 15px;
+	padding: auto;
+	display: block;
+}
+div.logo:hover {
+	opacity: 0.6;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	transition: all 0.3s ease;
+}
+.side-navigation {
+	height: 100%;
+	width: 70px;
+	position: fixed;
+	z-index: 8;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.53);
+	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.53);
+}
+
+/* Sidebar Trails List */
+.sidebar {
+	height: 100%;
+	width: 280px;
+	position: fixed;
+	z-index: 7;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	overflow: auto;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.53);
+	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.53);
+}
+
+/* Single Button Styles */
+#campsiteIcon {
+	background-image: url("Assets/Campsite.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	border-top: 1px solid #fff;
+}
+#campsiteIcon:hover {
+	background-image: url("Assets/Campsite-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+	border-top: 1px solid #fff;
+}
+#campsiteIcon.active {
+	background-image: url("Assets/Campsite-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+	border-top: 1px solid #fff;
+}
+#climbingIcon {
+	background-image: url("Assets/Climbing.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#climbingIcon:hover {
+	background-image: url("Assets/Climbing-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#trailheadIcon {
+	background-image: url("Assets/Trailhead.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#trailheadIcon:hover {
+	background-image: url("Assets/Trailhead-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#rangerIcon {
+	background-image: url("Assets/Ranger.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#rangerIcon:hover {
+	background-image: url("Assets/Ranger-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#lodgingIcon {
+	background-image: url("Assets/Lodging.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#lodgingIcon:hover {
+	background-image: url("Assets/Lodging-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#backcountryIcon {
+	background-image: url("../Assets/Backcountry.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#backcountryIcon:hover {
+	background-image: url("../Assets/Backcountry-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#selectIcon {
+	background-image: url("Assets/Select.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#selectIcon:hover {
+	background-image: url("Assets/Select-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#selectIcon.active {
+	background-image: url("Assets/Select-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#icon-2 {
+	background-image: url("Assets/bicycle.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+}
+#icon-2:hover {
+	background-image: url("Assets/bicycle-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+/* Information Button Styles */
+.info-button-stack {
+	z-index: 10;
+	position: absolute;
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	bottom: 0;
+	left: 0;
+}
+#information {
+	background-image: url("Assets/Information.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	border: none;
+}
+#information:hover {
+	background-image: url("Assets/Information-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+	border: none;
+}
+/* Mapbox */
+a.mapboxgl-ctrl-logo {
+	display: none !important;
+}
+.mapboxgl-ctrl-top-right {
+	top: 0;
+	right: 0;
+	padding: 25px 25px 0px 0px !important;
+}
+.mapboxgl-popup-content {
+	padding: 22px 10px 12px !important;
+	color: #fff !important;
+	background: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+	border-top-color: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+	border-bottom-color: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+	border-right-color: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+	border-left-color: #3B3B3A !important;
+}
+.mapboxgl-popup-close-button {
+	color: #fff !important;
+}
+.mapboxgl-popup-content p {
+    color: #fff;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+.breakpoint {
+	display: none;
+}
+.breakpoint-replace {
+	display: block;
+	width: max-content;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.text-box {
+	text-align: center;
+	color: #fff;
+	display: block;
+	background-color: #69dd76;
+	padding: 10px 30px 10px 30px;
+}
+}
+
+/* Trail Items */
+.listings {
+	height: 100%;
+	overflow: auto;
+	padding-bottom: 60px;
+	margin-left: 70px;
+}
+.listings .item {
+	display: block;
+	border-bottom: 1px dotted #949493;
+	padding: 10px 10px 10px 15px;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: 'Roboto Mono', monospace;
+}
+.listings .item:last-child {
+	border-bottom: none;
+}
+.listings .item .title {
+	font-size: 12px;
+	display: block;
+	color: #3B3B3A;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: 700;
+	text-decoration: none;
+}
+.listings .item .title small {
+	font-weight: 400;
+}
+.listings .item.active .title, .listings .item .title:hover {
+	color: #69dd76;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+.listings .item:hover {
+	background-color: #f8f8f8;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+.listings .item.active {
+	color: #69dd76;
+	background-color: #f8f8f8;
+}
+.clearfix {
+	display: block;
+}
+.clearfix::after {
+	content: '.';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* Main Block Styles */
+.main-block {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 280px;
+	right: 0;
+	width: auto;
+}
+.breakpoint-replace {
+	display: none;
+}
+.button-stack button {
+	color: #69dd76;
+	display: block;
+	width: 70px;
+	height: 70px;
+	background-color: white;
+	position: relative;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #69dd76;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
