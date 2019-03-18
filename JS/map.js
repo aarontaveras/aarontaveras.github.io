@@ -63,7 +63,7 @@ map.on('style.load', function () {
 });
 
 // TEST
-var stores = 'https://raw.githubusercontent.com/aarontaveras/Test/master/sweetgreen.geojson';
+var stores = 'https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson';
 
 map.on('load', function () {
 	map.addSource("list", {
