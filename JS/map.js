@@ -62,7 +62,7 @@ map.on('style.load', function () {
 });
 
 // TEST
-// var stores = "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson";
+var stores = "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson";
 
 map.on('load', () => {
 	fetch(stores)
@@ -70,7 +70,7 @@ map.on('load', () => {
 		.then((data) => {
 			map.addSource("locations", {
 				type: 'geojson',
-				data: "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson"
+				data: stores
 			});
 
 			map.addLayer({
