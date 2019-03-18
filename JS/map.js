@@ -81,9 +81,8 @@ map.on('load', () => {
 					'icon-image': 'circle-15',
 					'icon-allow-overlap': true,
 				}
-				buildLocationList(data);
 			});
-
+    buildLocationList(data);
 		});
 });
 
