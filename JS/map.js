@@ -23,6 +23,7 @@ map.addControl(new mapboxgl.NavigationControl());
 
 // Temp GeoJSON layers
 
+
 // Load and add point GeoJSON layers
 map.on('style.load', function () {
 	map.addSource("sample", {
@@ -153,12 +154,12 @@ function buildLocationList(data) {
 		var prop = currentFeature.properties;
 		// Select the listing container in the HTML
 		var listings = document.getElementById('listings');
-		// Append a div with the class 'item' for each store
+		// Append a div with the class 'item' for each store 
 		var listing = listings.appendChild(document.createElement('div'));
 		listing.className = 'item';
 		listing.id = "listing-" + i;
 
-		// Create a new link with the class 'title' for each store
+		// Create a new link with the class 'title' for each store 
 		// and fill it with the store address
 		var link = listing.appendChild(document.createElement('a'));
 		link.href = '#';
@@ -166,7 +167,7 @@ function buildLocationList(data) {
 		link.dataPosition = i;
 		link.innerHTML = prop.address;
 
-		// Create a new div with the class 'details' for each store
+		// Create a new div with the class 'details' for each store 
 		// and fill it with the city and phone number
 		var details = listing.appendChild(document.createElement('div'));
 		details.innerHTML = prop.city;
