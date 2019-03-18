@@ -1,5 +1,9 @@
 // JavaScript Document
 
+/////////////////////////////////////////////////////////////
+// MAP ACCESS TOKEN & BOUNDS
+/////////////////////////////////////////////////////////////
+
 // Initiate map
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hZ3JhbXN0dWRpbyIsImEiOiJjanNsZHBsY2wwOGFvNDlueDBkZDExdWdtIn0.9XMxTQbfO7-_7JVTT4vtZg';
 
@@ -7,6 +11,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hZ3JhbXN0dWRpbyIsImEiOiJjanNsZHBsY2wwOGFvN
 //[-120.088033, 37.345039], // Southwest coordinates
 //[-119.049850, 38.236698]  // Northeast coordinates
 //];
+
+/////////////////////////////////////////////////////////////
+// MAP
+/////////////////////////////////////////////////////////////
 
 var map = new mapboxgl.Map({
 	container: 'map',
@@ -21,10 +29,13 @@ var map = new mapboxgl.Map({
 // Add zoom controls
 map.addControl(new mapboxgl.NavigationControl());
 
-// Temp GeoJSON layers
+/////////////////////////////////////////////////////////////
+// LAYERS
+/////////////////////////////////////////////////////////////
 
+// LOAD POINT LAYERS
+/////////////////////////////////////////////////////////////
 
-// Load and add point GeoJSON layers
 map.on('style.load', function () {
 	map.addSource("sample", {
 		type: "geojson",
@@ -62,7 +73,9 @@ map.on('style.load', function () {
 	map.setFilter('sample-point-two', ['==', 'region', 'South America']);
 });
 
-// Load and add line GeoJSON layers
+// LOAD LINESTRING LAYERS
+/////////////////////////////////////////////////////////////
+
 var stores = "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson";
 
 map.on('load', () => {
@@ -83,10 +96,15 @@ map.on('load', () => {
 					'icon-allow-overlap': true,
 				}
 			});
+		
 			// Initialize the list
 			buildLocationList(data);
 		});
 });
+
+/////////////////////////////////////////////////////////////
+// FLYTO FUNCTIONS
+/////////////////////////////////////////////////////////////
 
 // Add an event listener for when a user clicks on the map
 map.on('click', function (e) {
@@ -198,6 +216,10 @@ function buildLocationList(data) {
 	}
 }
 
+/////////////////////////////////////////////////////////////
+// POPUPS
+/////////////////////////////////////////////////////////////
+
 // Add popups to all active icons
 map.on('click', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
@@ -218,6 +240,10 @@ map.on('click', function (e) {
 		.addTo(map);
 });
 
+/////////////////////////////////////////////////////////////
+// MOUSEOVERS
+/////////////////////////////////////////////////////////////
+
 // Add mouseover
 map.on('mousemove', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
@@ -226,6 +252,10 @@ map.on('mousemove', function (e) {
 
 	map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 });
+
+/////////////////////////////////////////////////////////////
+// TOGGLES
+/////////////////////////////////////////////////////////////
 
 // Toggle single layer
 var toggleLayerId = ["sample-point-one"]; // Add layer
@@ -270,6 +300,10 @@ document.getElementById("selectIcon").onclick = function (e) {
 	}
 
 };
+
+/////////////////////////////////////////////////////////////
+// UTILITIES
+/////////////////////////////////////////////////////////////
 
 // Initiate focus for keyboard users
 function handleFirstTab(e) {
