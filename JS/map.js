@@ -1,4 +1,4 @@
-// JavaScript Document
+// Begin JavaScript Document
 
 /////////////////////////////////////////////////////////////
 // MAP ACCESS TOKEN & BOUNDS
@@ -30,9 +30,6 @@ var map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 /////////////////////////////////////////////////////////////
-// LAYERS
-/////////////////////////////////////////////////////////////
-
 // LOAD POINT LAYERS
 /////////////////////////////////////////////////////////////
 
@@ -73,6 +70,7 @@ map.on('style.load', function () {
 	map.setFilter('sample-point-two', ['==', 'region', 'South America']);
 });
 
+/////////////////////////////////////////////////////////////
 // LOAD LINESTRING LAYERS
 /////////////////////////////////////////////////////////////
 
@@ -103,10 +101,9 @@ map.on('load', () => {
 });
 
 /////////////////////////////////////////////////////////////
-// FLYTO FUNCTIONS
+// ADD EVENT LISTENER FOR WHEN A USER CLICKS ON THE MAP
 /////////////////////////////////////////////////////////////
 
-// Add an event listener for when a user clicks on the map
 map.on('click', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
 		layers: ["locations"]
@@ -139,7 +136,10 @@ map.on('click', function (e) {
 	}
 });
 
-// Fly to current clicked location
+/////////////////////////////////////////////////////////////
+// FLYTO CURRENT SELECTED LOCATION
+/////////////////////////////////////////////////////////////
+
 function flyToStore(currentFeature) {
 	map.flyTo({
 		center: currentFeature.geometry.coordinates,
@@ -147,7 +147,10 @@ function flyToStore(currentFeature) {
 	});
 }
 
-// Create popup during flyTo
+/////////////////////////////////////////////////////////////
+// CREATE POPUP DURING FLYTO
+/////////////////////////////////////////////////////////////
+
 function createPopUp(currentFeature) {
 	var popUps = document.getElementsByClassName('mapboxgl-popup');
 	if (popUps[0]) popUps[0].remove();
@@ -162,7 +165,10 @@ function createPopUp(currentFeature) {
 		.addTo(map);
 }
 
-// Build list from GeoJSON properties
+/////////////////////////////////////////////////////////////
+// BUILD LIST FROM GEOJSON PROPERTIES & ADD LISTENER
+/////////////////////////////////////////////////////////////
+
 function buildLocationList(data) {
 	for (i = 0; i < data.features.length; i++) {
 		// Create an array of all the stores and their properties
@@ -217,10 +223,9 @@ function buildLocationList(data) {
 }
 
 /////////////////////////////////////////////////////////////
-// POPUPS
+// ADD POPUPS TO ALL ACTIVE ICONS
 /////////////////////////////////////////////////////////////
 
-// Add popups to all active icons
 map.on('click', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
 		layers: ["sample-point-one", "sample-point-two"] // Add layers
@@ -244,7 +249,6 @@ map.on('click', function (e) {
 // MOUSEOVERS
 /////////////////////////////////////////////////////////////
 
-// Add mouseover
 map.on('mousemove', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
 		layers: ["sample-point-one", "sample-point-two", "locations"] // Add layers
@@ -254,7 +258,7 @@ map.on('mousemove', function (e) {
 });
 
 /////////////////////////////////////////////////////////////
-// TOGGLES
+// TOGGLE A SINGLE LAYER
 /////////////////////////////////////////////////////////////
 
 // Toggle single layer
@@ -279,7 +283,10 @@ document.getElementById("campsiteIcon").onclick = function (e) { // Change butto
 
 };
 
-// Toggle all layers
+/////////////////////////////////////////////////////////////
+// TOGGLE ALL LAYERS
+/////////////////////////////////////////////////////////////
+
 var toggleAllLayerIds = ["sample-point-one", "sample-point-two"];
 
 document.getElementById("selectIcon").onclick = function (e) {
