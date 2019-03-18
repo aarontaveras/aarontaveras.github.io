@@ -64,26 +64,35 @@ map.on('style.load', function () {
 // TEST
 var stores = "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson";
 
-map.on('load', () => {
-	fetch(stores)
-		.then(response => response.json())
-		.then((data) => {
-			map.addSource("locations", {
-				type: 'geojson',
-				data: stores
-			});
+map.on('load', function () {
+	map.addSource("list", {
+		type: 'geojson',
+		data: stores
+	});
+	map.addLayer({
+		"id": "locations",
+		"type": "symbol",
+		"source": "list",
+		"layout": {
+			'icon-image': 'circle-15',
+			'icon-allow-overlap': true,
+		}
+	});
+});
 
-			map.addLayer({
-				"id": "locations",
-				"type": "symbol",
-				"source": "locations",
-				"layout": {
-					'icon-image': 'circle-15',
-					'icon-allow-overlap': true,
-				}
-			});
-    buildLocationList(data);
-		});
+map.on('load', () => {
+  fetch(stores)
+    .then(response => response.json())
+    .then((data) => {
+      map.addSource("locations", {
+        type: 'geojson',
+        data: data
+      });
+
+      map.addLayer(["locations"]);
+
+      buildLocationList(data);
+    });
 });
 
 // Load and add list GeoJSON layers
