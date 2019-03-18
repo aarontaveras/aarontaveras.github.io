@@ -79,6 +79,9 @@ map.on('load', function () {
 			'icon-allow-overlap': true,
 		}
 	});
+	
+	buildLocationList(stores);
+	
 });
 
 // Load and add list GeoJSON layers
