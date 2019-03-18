@@ -119,14 +119,14 @@ div.logo:hover {
 
 /* Single Button Styles */
 #campsiteIcon {
-	background-image: url("Assets/Campsite.svg");
+	background-image: url("../Assets/Campsite.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 	border-top: 1px solid #fff;
 }
 #campsiteIcon:hover {
-	background-image: url("Assets/Campsite-hover.svg");
+	background-image: url("../Assets/Campsite-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -138,7 +138,7 @@ div.logo:hover {
 	border-top: 1px solid #fff;
 }
 #campsiteIcon.active {
-	background-image: url("Assets/Campsite-hover.svg");
+	background-image: url("../Assets/Campsite-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -150,13 +150,13 @@ div.logo:hover {
 	border-top: 1px solid #fff;
 }
 #climbingIcon {
-	background-image: url("Assets/Climbing.svg");
+	background-image: url("../Assets/Climbing.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #climbingIcon:hover {
-	background-image: url("Assets/Climbing-hover.svg");
+	background-image: url("../Assets/Climbing-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -167,13 +167,13 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #trailheadIcon {
-	background-image: url("Assets/Trailhead.svg");
+	background-image: url("../Assets/Trailhead.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #trailheadIcon:hover {
-	background-image: url("Assets/Trailhead-hover.svg");
+	background-image: url("../Assets/Trailhead-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -184,13 +184,13 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #rangerIcon {
-	background-image: url("Assets/Ranger.svg");
+	background-image: url("../Assets/Ranger.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #rangerIcon:hover {
-	background-image: url("Assets/Ranger-hover.svg");
+	background-image: url("../Assets/Ranger-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -201,13 +201,13 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #lodgingIcon {
-	background-image: url("Assets/Lodging.svg");
+	background-image: url("../Assets/Lodging.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #lodgingIcon:hover {
-	background-image: url("Assets/Lodging-hover.svg");
+	background-image: url("../Assets/Lodging-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -235,13 +235,13 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #selectIcon {
-	background-image: url("Assets/Select.svg");
+	background-image: url("../Assets/Select.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #selectIcon:hover {
-	background-image: url("Assets/Select-hover.svg");
+	background-image: url("../Assets/Select-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -252,7 +252,7 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #selectIcon.active {
-	background-image: url("Assets/Select-hover.svg");
+	background-image: url("../Assets/Select-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -263,13 +263,13 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #icon-2 {
-	background-image: url("Assets/bicycle.svg");
+	background-image: url("../Assets/bicycle.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #icon-2:hover {
-	background-image: url("Assets/bicycle-hover.svg");
+	background-image: url("../Assets/bicycle-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -291,14 +291,14 @@ div.logo:hover {
 	left: 0;
 }
 #information {
-	background-image: url("Assets/Information.svg");
+	background-image: url("../Assets/Information.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 	border: none;
 }
 #information:hover {
-	background-image: url("Assets/Information-hover.svg");
+	background-image: url("../Assets/Information-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
