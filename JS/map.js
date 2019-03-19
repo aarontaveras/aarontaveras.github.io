@@ -19,8 +19,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hZ3JhbXN0dWRpbyIsImEiOiJjanNsZHBsY2wwOGFvN
 var map = new mapboxgl.Map({
 	container: 'map',
 	style: 'mapbox://styles/mapbox/outdoors-v10',
-	center: [-77.016664, 38.921741],
-	zoom: 13,
+	center: [-119.573159, 37.739671],
+	zoom: 10,
 	minZoom: 2,
 	maxZoom: 15,
 	//maxBounds: bounds
@@ -34,15 +34,15 @@ map.addControl(new mapboxgl.NavigationControl());
 /////////////////////////////////////////////////////////////
 
 map.on('style.load', function () {
-	map.addSource("sample", {
+	map.addSource("points", {
 		type: "geojson",
-		data: "https://raw.githubusercontent.com/aarontaveras/Sample-GeoJSON-Data/master/sample.geojson"
+		data: "https://raw.githubusercontent.com/aarontaveras/Points/master/points.geojson"
 	});
 
 	map.addLayer({
-		"id": "sample-point-one",
+		"id": "trailhead",
 		"type": "symbol",
-		"source": "sample",
+		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
 			"icon-image": "circle-15",
@@ -52,12 +52,12 @@ map.on('style.load', function () {
 		}
 	});
 
-	map.setFilter('sample-point-one', ['==', 'region', 'North America']);
+	map.setFilter('trailhead', ['==', 'TYPE', 'Trailhead']); // layer, attribute, name
 
 	map.addLayer({
-		"id": "sample-point-two",
+		"id": "high-camp",
 		"type": "symbol",
-		"source": "sample",
+		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
 			"icon-image": "circle-15",
@@ -67,11 +67,41 @@ map.on('style.load', function () {
 		}
 	});
 
-	map.setFilter('sample-point-two', ['==', 'region', 'South America']);
+	map.setFilter('high-camp', ['==', 'TYPE', 'High Camp']); // layer, attribute, name
+
+	map.addLayer({
+		"id": "climbing-area",
+		"type": "symbol",
+		"source": "points",
+		"filter": ["==", "$type", "Point"],
+		"layout": {
+			"icon-image": "circle-15",
+			"icon-size": 1,
+			"icon-anchor": "center",
+			"visibility": "none",
+		}
+	});
+
+	map.setFilter('climbing-area', ['==', 'TYPE', 'Climbing Area']); // layer, attribute, name
+
+	map.addLayer({
+		"id": "campsite",
+		"type": "symbol",
+		"source": "points",
+		"filter": ["==", "$type", "Point"],
+		"layout": {
+			"icon-image": "circle-15",
+			"icon-size": 1,
+			"icon-anchor": "center",
+			"visibility": "none",
+		}
+	});
+
+	map.setFilter('campsite', ['==', 'TYPE', 'Campsite']); // layer, attribute, name
 });
 
 /////////////////////////////////////////////////////////////
-// LOAD LINESTRING LAYERS
+// LOAD ALL POINT LAYERS WITH NAMES
 /////////////////////////////////////////////////////////////
 
 var stores = "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson";
@@ -94,7 +124,7 @@ map.on('load', () => {
 					'icon-allow-overlap': true,
 				}
 			});
-		
+
 			// Initialize the list
 			buildLocationList(data);
 		});
@@ -178,12 +208,12 @@ function buildLocationList(data) {
 		var prop = currentFeature.properties;
 		// Select the listing container in the HTML
 		var listings = document.getElementById('listings');
-		// Append a div with the class 'item' for each store 
+		// Append a div with the class 'item' for each store
 		var listing = listings.appendChild(document.createElement('div'));
 		listing.className = 'item';
 		listing.id = "listing-" + i;
 
-		// Create a new link with the class 'title' for each store 
+		// Create a new link with the class 'title' for each store
 		// and fill it with the store address
 		var link = listing.appendChild(document.createElement('a'));
 		link.href = '#';
@@ -191,7 +221,7 @@ function buildLocationList(data) {
 		link.dataPosition = i;
 		link.innerHTML = prop.address;
 
-		// Create a new div with the class 'details' for each store 
+		// Create a new div with the class 'details' for each store
 		// and fill it with the city and phone number
 		var details = listing.appendChild(document.createElement('div'));
 		details.innerHTML = prop.city;
@@ -228,7 +258,7 @@ function buildLocationList(data) {
 
 map.on('click', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
-		layers: ["sample-point-one", "sample-point-two"] // Add layers
+		layers: ["trailhead", "high-camp", "climbing-area", "campsite"] // Add layers
 	});
 
 	if (!features.length) {
@@ -241,9 +271,11 @@ map.on('click', function (e) {
 			offset: 8 // Change popup tooltip offset from icon
 		})
 		.setLngLat(feature.geometry.coordinates)
-		.setHTML(feature.properties.elevation) // Change attribute, properties.'Replace'
+		.setHTML(feature.properties.NAME) // Change attribute, properties.'Replace' (Uppercase)
 		.addTo(map);
 });
+
+
 
 /////////////////////////////////////////////////////////////
 // MOUSEOVERS
@@ -251,7 +283,7 @@ map.on('click', function (e) {
 
 map.on('mousemove', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
-		layers: ["sample-point-one", "sample-point-two", "locations"] // Add layers
+		layers: ["trailhead", "high-camp", "climbing-area", "locations", "campsite"] // Add layers
 	});
 
 	map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
@@ -261,12 +293,12 @@ map.on('mousemove', function (e) {
 // TOGGLE A SINGLE LAYER
 /////////////////////////////////////////////////////////////
 
-// Toggle single layer
-var toggleLayerId = ["sample-point-one"]; // Add layer
+// Toggle trailhead layer
+var toggletrailheadId = ["trailhead"]; // Add layer
 
-document.getElementById("campsiteIcon").onclick = function (e) { // Change button name, getElementById('Replace')
-	for (var index in toggleLayerId) {
-		var clickedLayer = toggleLayerId[index];
+document.getElementById("trailheadIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+	for (var index in toggletrailheadId) {
+		var clickedLayer = toggletrailheadId[index];
 		e.preventDefault();
 		e.stopPropagation();
 
@@ -283,11 +315,78 @@ document.getElementById("campsiteIcon").onclick = function (e) { // Change butto
 
 };
 
+// Toggle high camp layer
+var togglehighcampId = ["high-camp"]; // Add layer
+
+document.getElementById("backcountryIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+	for (var index in togglehighcampId) {
+		var clickedLayer = togglehighcampId[index];
+		e.preventDefault();
+		e.stopPropagation();
+
+		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+		if (visibility === 'none') {
+			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+			this.className = '';
+		} else {
+			this.className = 'active';
+			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+		}
+	}
+
+};
+
+// Toggle climbing area layer
+var toggleclimbingId = ["climbing-area"]; // Add layer
+
+document.getElementById("climbingIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+	for (var index in toggleclimbingId) {
+		var clickedLayer = toggleclimbingId[index];
+		e.preventDefault();
+		e.stopPropagation();
+
+		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+		if (visibility === 'none') {
+			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+			this.className = '';
+		} else {
+			this.className = 'active';
+			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+		}
+	}
+
+};
+
+// Toggle climbing area layer
+var togglecampsiteId = ["campsite"]; // Add layer
+
+document.getElementById("campsiteIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+	for (var index in togglecampsiteId) {
+		var clickedLayer = togglecampsiteId[index];
+		e.preventDefault();
+		e.stopPropagation();
+
+		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+		if (visibility === 'none') {
+			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+			this.className = '';
+		} else {
+			this.className = 'active';
+			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+		}
+	}
+
+};
+
+
 /////////////////////////////////////////////////////////////
 // TOGGLE ALL LAYERS
 /////////////////////////////////////////////////////////////
 
-var toggleAllLayerIds = ["sample-point-one", "sample-point-two"];
+var toggleAllLayerIds = ["trailhead", "high-camp", "climbing-area", "campsite"];
 
 document.getElementById("selectIcon").onclick = function (e) {
 	for (var index in toggleAllLayerIds) {
