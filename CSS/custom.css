@@ -166,6 +166,17 @@ div.logo:hover {
 	-ms-transition: all .3s ease;
 	transition: all 0.3s ease;
 }
+#climbingIcon.active {
+	background-image: url("../Assets/Climbing-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
 #trailheadIcon {
 	background-image: url("../Assets/Trailhead.svg");
 	background-size: 70px 70px;
@@ -173,6 +184,17 @@ div.logo:hover {
 	width: 70px;
 }
 #trailheadIcon:hover {
+	background-image: url("../Assets/Trailhead-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#trailheadIcon.active {
 	background-image: url("../Assets/Trailhead-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
@@ -224,6 +246,17 @@ div.logo:hover {
 	width: 70px;
 }
 #backcountryIcon:hover {
+	background-image: url("../Assets/Backcountry-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#backcountryIcon.active {
 	background-image: url("../Assets/Backcountry-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
@@ -341,6 +374,18 @@ a.mapboxgl-ctrl-logo {
 .mapboxgl-popup-content p {
     color: #fff;
 }
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+    border-bottom-color: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    border-top-color: #3B3B3A !important;
+}
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+    border-top-color: #3B3B3A !important;
+}
 
 /* Media Queries */
 @media only screen and (max-width: 768px) {
@@ -451,3 +496,5 @@ a.mapboxgl-ctrl-logo {
 	border-left: none;
 	border-right: none;
 }
+
+/* End CSS Document */
