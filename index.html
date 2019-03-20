@@ -7,17 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-<title>Web Map Interface (beta)</title>
+<title>Yosemite Outdoor Map (beta)</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 <!-- Custom CSS: Local -->
-<link rel="stylesheet" href="../CSS/custom.css">
+<link rel="stylesheet" href="../Web-Map-Interface/CSS/custom.css">
 
 <!-- Balloon CSS: Local -->
-<link rel="stylesheet" href="../CSS/balloon.css">
+<link rel="stylesheet" href="../Web-Map-Interface/CSS/balloon.css">
 
 <!-- Animate CSS: Local -->
-<link rel="stylesheet" href="../Animate/animate.min.css">
+<link rel="stylesheet" href="../Web-Map-Interface/Animate/animate.min.css">
 
 <!-- Mapbox GL JS: Remote -->
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
@@ -27,24 +28,26 @@
 
 <!-- Jquery: Remote -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	
 </head>
 
 <body>
 <!-- Main Code Block -->
 <div class="breakpoint">
   <div class="side-navigation animated slideInLeft"> </div>
-  <div class="sidebar animated slideInLeft delay-1s"> 
+  <div class="sidebar animated slideInLeft delay-1s">
+    <div class="heading">
+      <h5>Trailheads</h5>
+    </div>
     <div id="listings" class="listings"></div>
   </div>
   <div class="logo-container animated fadeIn delay-1s">
     <div class="logo"></div>
     <div class="button-stack">
-      <button data-balloon="Campsite" data-balloon-pos="right" id="campsiteIcon"></button>
-      <button data-balloon="Backcountry Site" data-balloon-pos="right" id="backcountryIcon"></button>
-      <button data-balloon="Trailhead" data-balloon-pos="right" id="trailheadIcon"></button>
-      <button data-balloon="Climbing Area" data-balloon-pos="right" id="climbingIcon"></button>
-      <button data-balloon="Ranger Station" data-balloon-pos="right" id="rangerIcon"></button>
+      <button data-balloon="Campsites" data-balloon-pos="right" id="campsiteIcon"></button>
+      <button data-balloon="High Camps" data-balloon-pos="right" id="backcountryIcon"></button>
+      <button data-balloon="Trailheads" data-balloon-pos="right" id="trailheadIcon"></button>
+      <button data-balloon="Climbing Areas" data-balloon-pos="right" id="climbingIcon"></button>
+      <button data-balloon="Ranger Stations" data-balloon-pos="right" id="rangerIcon"></button>
       <button data-balloon="Lodging & Food" data-balloon-pos="right" id="lodgingIcon"></button>
       <button data-balloon="Show All" data-balloon-pos="right" id="selectIcon"></button>
     </div>
@@ -62,7 +65,7 @@
   <p class="text-box">You may want to use a bigger screen.</p>
 </div>
 
-<!-- Mapbox GL JS: Local --> 
-<script type="text/javascript" src="../JS/map.js"></script>
+<!-- Mapbox GL JS: Local -->
+<script type="text/javascript" src="../Web-Map-Interface/JS/map.js"></script>
 </body>
 </html>

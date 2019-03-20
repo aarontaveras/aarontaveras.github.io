@@ -19,7 +19,7 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) input:focus,
 }
 /* Root Font Styles */
 * {
-	font-family: 'Lato', Helvetica, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	color: #333447;
 	line-height: 1.5;
 }
@@ -106,13 +106,12 @@ div.logo:hover {
 /* Sidebar Trails List */
 .sidebar {
 	height: 100%;
-	width: 280px;
+	width: 325px;
 	position: fixed;
 	z-index: 7;
 	top: 0;
 	left: 0;
 	background-color: #fff;
-	overflow: auto;
 	-webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.53);
 	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.53);
 }
@@ -475,7 +474,7 @@ a.mapboxgl-ctrl-logo {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 280px;
+	left: 325px;
 	right: 0;
 	width: auto;
 }
@@ -495,6 +494,19 @@ a.mapboxgl-ctrl-logo {
 	border-top: none;
 	border-left: none;
 	border-right: none;
+}
+.heading {
+	border-bottom: 1px dotted #949493;
+	height: 70px;
+	overflow: hidden;
+}
+.heading h5 {
+	margin-left: 85px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	vertical-align: middle;
+	line-height: 70px;
+	overflow: hidden;
 }
 
 /* End CSS Document */

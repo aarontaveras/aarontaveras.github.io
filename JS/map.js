@@ -7,10 +7,10 @@
 // Initiate map
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hZ3JhbXN0dWRpbyIsImEiOiJjanNsZHBsY2wwOGFvNDlueDBkZDExdWdtIn0.9XMxTQbfO7-_7JVTT4vtZg';
 
-//var bounds = [
-//[-120.088033, 37.345039], // Southwest coordinates
-//[-119.049850, 38.236698]  // Northeast coordinates
-//];
+var bounds = [
+	[-120.877490, 37.227085], // Southwest coordinates
+	[-118.153135, 38.458969] // Northeast coordinates
+];
 
 /////////////////////////////////////////////////////////////
 // MAP
@@ -18,12 +18,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hZ3JhbXN0dWRpbyIsImEiOiJjanNsZHBsY2wwOGFvN
 
 var map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/mapbox/outdoors-v10',
+	style: 'mapbox://styles/anagramstudio/cjszguam515hr1fllwnx7s55p',
 	center: [-119.573159, 37.739671],
-	zoom: 10,
-	minZoom: 2,
+	zoom: 11,
+	minZoom: 10,
 	maxZoom: 15,
-	//maxBounds: bounds
+	maxBounds: bounds
 });
 
 // Add zoom controls
@@ -45,7 +45,7 @@ map.on('style.load', function () {
 		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
-			"icon-image": "circle-15",
+			"icon-image": "Trailhead",
 			"icon-size": 1,
 			"icon-anchor": "center",
 			"visibility": "none",
@@ -60,7 +60,7 @@ map.on('style.load', function () {
 		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
-			"icon-image": "circle-15",
+			"icon-image": "Trailhead",
 			"icon-size": 1,
 			"icon-anchor": "center",
 			"visibility": "none",
@@ -75,7 +75,7 @@ map.on('style.load', function () {
 		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
-			"icon-image": "circle-15",
+			"icon-image": "Trailhead",
 			"icon-size": 1,
 			"icon-anchor": "center",
 			"visibility": "none",
@@ -90,7 +90,7 @@ map.on('style.load', function () {
 		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
-			"icon-image": "circle-15",
+			"icon-image": "Trailhead",
 			"icon-size": 1,
 			"icon-anchor": "center",
 			"visibility": "none",
@@ -101,10 +101,10 @@ map.on('style.load', function () {
 });
 
 /////////////////////////////////////////////////////////////
-// LOAD ALL POINT LAYERS WITH NAMES
+// LOAD ALL POINT LAYERS WITH NAMES FOR LIST
 /////////////////////////////////////////////////////////////
 
-var stores = "https://raw.githubusercontent.com/aarontaveras/Sweetgreens/master/sweetgreens.geojson";
+var stores = "https://raw.githubusercontent.com/aarontaveras/Trailheads/master/Trailheads.geojson";
 
 map.on('load', () => {
 	fetch(stores)
@@ -120,7 +120,9 @@ map.on('load', () => {
 				"type": "symbol",
 				"source": "locations",
 				"layout": {
-					'icon-image': 'circle-15',
+					'icon-image': 'Trailhead',
+					"icon-size": 1,
+					"icon-anchor": "center",
 					'icon-allow-overlap': true,
 				}
 			});
@@ -191,7 +193,7 @@ function createPopUp(currentFeature) {
 	})
 
 	.setLngLat(currentFeature.geometry.coordinates)
-		.setHTML(currentFeature.properties.address)
+		.setHTML(currentFeature.properties.NAME)
 		.addTo(map);
 }
 
@@ -219,7 +221,7 @@ function buildLocationList(data) {
 		link.href = '#';
 		link.className = 'title';
 		link.dataPosition = i;
-		link.innerHTML = prop.address;
+		link.innerHTML = prop.NAME;
 
 		// Create a new div with the class 'details' for each store
 		// and fill it with the city and phone number
@@ -288,6 +290,26 @@ map.on('mousemove', function (e) {
 
 	map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 });
+
+/////////////////////////////////////////////////////////////
+// ADD POPUPS TO ALL POLYGONS
+/////////////////////////////////////////////////////////////
+
+//map.on('click', "trail-mileage", function (e) {
+//new mapboxgl.Popup()
+//.setLngLat(e.lngLat)
+//.setHTML(e.features[0].properties.MILES + " miles")
+//.addTo(map);
+//});
+
+/////////////////////////////////////////////////////////////
+// MOUSEOVERS
+/////////////////////////////////////////////////////////////
+
+//map.on('mousemove', "trail-mileage", function (e) {
+// Change the cursor style as a UI indicator.
+//map.getCanvas().style.cursor = 'pointer';
+//});
 
 /////////////////////////////////////////////////////////////
 // TOGGLE A SINGLE LAYER
