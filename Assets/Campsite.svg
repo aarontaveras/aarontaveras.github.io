@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="70px" height="70px" viewBox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#69DD76;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-</style>
+	 width="70px" height="70px" viewBox="0 0 70 70" enable-background="new 0 0 70 70" xml:space="preserve">
+<path id="Rectangle-path_107" fill="none" stroke="#69DD76" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M15,17.6c0-1.5,1.2-2.6,2.6-2.6h34.7c1.5,0,2.6,1.2,2.6,2.6v34.7c0,1.5-1.2,2.6-2.6,2.6H17.6c-1.5,0-2.6-1.2-2.6-2.6V17.6z"/>
 <g>
-	<g id="Outdoors-Recreation__x2F__Camping__x2F__camping-tent-sleep">
-		<g id="Group_108">
-			<g id="Regular_108">
-				<path id="Oval_53" class="st0" d="M31.2,44.1c1.3,0,2.3-1,2.3-2.3s-1-2.3-2.3-2.3c-1.3,0-2.3,1-2.3,2.3
-					C28.8,43.3,29.9,44.1,31.2,44.1z"/>
-				<path id="Shape_592" class="st0" d="M35.7,39.6H42c1.1,0,2,0.9,2,2v2.5h-8.4L35.7,39.6L35.7,39.6z"/>
-				<path id="Shape_593" class="st0" d="M36.5,27.3l8.9,5.9c0.2,0.1,0.3,0.3,0.3,0.5l2.1,11.7c0,0.3,0,0.4-0.2,0.6
-					c-0.2,0.2-0.3,0.3-0.6,0.3H26c-0.3,0-0.4-0.1-0.6-0.3c-0.2,0-0.2-0.3-0.2-0.6l2.1-11.7c0-0.2,0.2-0.3,0.3-0.5L36.5,27.3z"/>
-				<path id="Shape_594" class="st0" d="M36.5,27.3v-3.8"/>
-			</g>
-		</g>
+	<g>
+		<defs>
+			<path id="SVGID_1_" d="M46,46.2316c0.2761-0.0001,0.5298-0.152,0.6604-0.3952c0.1306-0.2432,0.117-0.5386-0.0354-0.7688
+				l-10.392-16.06c-0.1108-0.1673-0.1108-0.3847,0-0.552l2.1-3.171c0.2746-0.4593,0.139-1.0534-0.3077-1.348
+				c-0.4468-0.2946-1.0463-0.1853-1.3603,0.248l-1.248,1.881c-0.0926,0.1399-0.2492,0.2241-0.417,0.2241
+				c-0.1678,0-0.3244-0.0842-0.417-0.2241l-1.249-1.884c-0.314-0.4333-0.9135-0.5426-1.3603-0.248
+				c-0.4467,0.2946-0.5823,0.8887-0.3077,1.348l2.1,3.171c0.1108,0.1673,0.1108,0.3847,0,0.552l-10.391,16.063
+				c-0.1524,0.2302-0.166,0.5256-0.0354,0.7688c0.1306,0.2432,0.3843,0.3951,0.6604,0.3952h5.934
+				c0.1756,0.0002,0.3384-0.0916,0.429-0.242l4.208-7.015c0.0969-0.1415,0.2575-0.2261,0.429-0.2261s0.3321,0.0846,0.429,0.2261
+				l4.208,7.015c0.0906,0.1504,0.2534,0.2422,0.429,0.242H46z"/>
+		</defs>
+		<use xlink:href="#SVGID_1_"  overflow="visible" fill="#69DD76"/>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<rect x="18.2504" y="18.7684" clip-path="url(#SVGID_2_)" fill="#69DD76" width="33.4992" height="32.4633"/>
 	</g>
 </g>
-<path id="Rectangle-path_107" class="st0" d="M16.5,17.6c0-1.5,1.2-2.6,2.6-2.6h34.7c1.5,0,2.6,1.2,2.6,2.6v34.7
-	c0,1.5-1.2,2.6-2.6,2.6H19.1c-1.5,0-2.6-1.2-2.6-2.6V17.6z"/>
 </svg>
