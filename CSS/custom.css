@@ -13,6 +13,7 @@ body {
 	-webkit-background-size: 4px 4px;
 	-moz-background-size: 4px 4px;
 	background-size: 4px 4px;
+	overflow: hidden;
 }
 body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) input:focus, body:not(.user-is-tabbing) select:focus, body:not(.user-is-tabbing) textarea:focus {
 	outline: none;
@@ -56,6 +57,7 @@ p {
 .font-heavy {
 	font-weight: 700;
 }
+
 /* Mapbox Map */
 #map {
 	position: absolute;
@@ -65,6 +67,7 @@ p {
 	width: 100%;
 	z-index: 0;
 }
+
 /* Main Code Block */
 .logo-container {
 	height: 70px;
@@ -122,7 +125,7 @@ div.logo:hover {
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
-	border-top: 1px solid #fff;
+	border-top: 1px solid #69dd76;
 }
 #campsiteIcon:hover {
 	background-image: url("../Assets/Campsite-hover.svg");
@@ -149,13 +152,13 @@ div.logo:hover {
 	border-top: 1px solid #fff;
 }
 #climbingIcon {
-	background-image: url("../Assets/Climbing.svg");
+	background-image: url("../Assets/Climbing-area.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #climbingIcon:hover {
-	background-image: url("../Assets/Climbing-hover.svg");
+	background-image: url("../Assets/Climbing-area-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -166,7 +169,7 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #climbingIcon.active {
-	background-image: url("../Assets/Climbing-hover.svg");
+	background-image: url("../Assets/Climbing-area-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -176,14 +179,14 @@ div.logo:hover {
 	-ms-transition: all .3s ease;
 	transition: all 0.3s ease;
 }
-#trailheadIcon {
-	background-image: url("../Assets/Trailhead.svg");
+#drinkingIcon {
+	background-image: url("../Assets/Water.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
-#trailheadIcon:hover {
-	background-image: url("../Assets/Trailhead-hover.svg");
+#drinkingIcon:hover {
+	background-image: url("../Assets/Water-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -193,8 +196,8 @@ div.logo:hover {
 	-ms-transition: all .3s ease;
 	transition: all 0.3s ease;
 }
-#trailheadIcon.active {
-	background-image: url("../Assets/Trailhead-hover.svg");
+#drinkingIcon.active {
+	background-image: url("../Assets/Water-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -205,13 +208,24 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #rangerIcon {
-	background-image: url("../Assets/Ranger.svg");
+	background-image: url("../Assets/Ranger-station.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #rangerIcon:hover {
-	background-image: url("../Assets/Ranger-hover.svg");
+	background-image: url("../Assets/Ranger-station-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
+#rangerIcon.active {
+	background-image: url("../Assets/Ranger-station-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -238,14 +252,25 @@ div.logo:hover {
 	-ms-transition: all .3s ease;
 	transition: all 0.3s ease;
 }
+#lodgingIcon.active {
+	background-image: url("../Assets/Lodging-hover.svg");
+	background-size: 70px 70px;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all 0.3s ease;
+}
 #backcountryIcon {
-	background-image: url("../Assets/Backcountry.svg");
+	background-image: url("../Assets/High-camp.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #backcountryIcon:hover {
-	background-image: url("../Assets/Backcountry-hover.svg");
+	background-image: url("../Assets/High-camp-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -256,7 +281,7 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #backcountryIcon.active {
-	background-image: url("../Assets/Backcountry-hover.svg");
+	background-image: url("../Assets/High-camp-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -294,23 +319,7 @@ div.logo:hover {
 	-ms-transition: all .3s ease;
 	transition: all 0.3s ease;
 }
-#icon-2 {
-	background-image: url("../Assets/bicycle.svg");
-	background-size: 70px 70px;
-	height: 70px;
-	width: 70px;
-}
-#icon-2:hover {
-	background-image: url("../Assets/bicycle-hover.svg");
-	background-size: 70px 70px;
-	height: 70px;
-	width: 70px;
-	cursor: pointer;
-	-webkit-transition: all .3s;
-	-moz-transition: all .3s ease;
-	-ms-transition: all .3s ease;
-	transition: all 0.3s ease;
-}
+
 /* Information Button Styles */
 .info-button-stack {
 	z-index: 10;
@@ -341,6 +350,7 @@ div.logo:hover {
 	transition: all 0.3s ease;
 	border: none;
 }
+
 /* Mapbox */
 a.mapboxgl-ctrl-logo {
 	display: none !important;
@@ -353,19 +363,19 @@ a.mapboxgl-ctrl-logo {
 .mapboxgl-popup-content {
 	padding: 22px 10px 12px !important;
 	color: #fff !important;
-	background: #3B3B3A !important;
+	background: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-	border-top-color: #3B3B3A !important;
+	border-top-color: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
-	border-bottom-color: #3B3B3A !important;
+	border-bottom-color: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-	border-right-color: #3B3B3A !important;
+	border-right-color: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-	border-left-color: #3B3B3A !important;
+	border-left-color: #69dd76 !important;
 }
 .mapboxgl-popup-close-button {
 	color: #fff !important;
@@ -374,16 +384,16 @@ a.mapboxgl-ctrl-logo {
     color: #fff;
 }
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
-    border-bottom-color: #3B3B3A !important;
+    border-bottom-color: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-    border-bottom-color: #3B3B3A !important;
+    border-bottom-color: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-    border-top-color: #3B3B3A !important;
+    border-top-color: #69dd76 !important;
 }
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
-    border-top-color: #3B3B3A !important;
+    border-top-color: #69dd76 !important;
 }
 
 /* Media Queries */
@@ -410,10 +420,22 @@ a.mapboxgl-ctrl-logo {
 }
 
 /* Trail Items */
+.heading {
+	border-bottom: 1px solid #69dd76;
+	height: 70px;
+	overflow: hidden;
+}
+.heading h5 {
+	margin-left: 85px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	vertical-align: middle;
+	line-height: 70px;
+	overflow: hidden;
+}
 .listings {
 	height: 100%;
 	overflow: auto;
-	padding-bottom: 60px;
 	margin-left: 70px;
 }
 .listings .item {
@@ -427,6 +449,7 @@ a.mapboxgl-ctrl-logo {
 }
 .listings .item:last-child {
 	border-bottom: none;
+	padding-bottom: 100px;
 }
 .listings .item .title {
 	font-size: 12px;
@@ -457,15 +480,14 @@ a.mapboxgl-ctrl-logo {
 	color: #69dd76;
 	background-color: #f8f8f8;
 }
-.clearfix {
-	display: block;
-}
+.clearfix { display: block; }
+
 .clearfix::after {
-	content: '.';
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 /* Main Block Styles */
@@ -495,17 +517,9 @@ a.mapboxgl-ctrl-logo {
 	border-left: none;
 	border-right: none;
 }
-.heading {
-	border-bottom: 1px dotted #949493;
-	height: 70px;
-	overflow: hidden;
-}
-.heading h5 {
-	margin-left: 85px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	vertical-align: middle;
-	line-height: 70px;
+
+/* About Page Styles */
+.background {
 }
 
 /* End CSS Document */
