@@ -121,14 +121,14 @@ div.logo:hover {
 
 /* Single Button Styles */
 #campsiteIcon {
-	background-image: url("../Assets/Campsite.svg");
+	background-image: url("../Campsite.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 	border-top: 1px solid #69dd76;
 }
 #campsiteIcon:hover {
-	background-image: url("../Assets/Campsite-hover.svg");
+	background-image: url("../Campsite-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -140,7 +140,7 @@ div.logo:hover {
 	border-top: 1px solid #fff;
 }
 #campsiteIcon.active {
-	background-image: url("../Assets/Campsite-hover.svg");
+	background-image: url("../Campsite-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
