@@ -152,13 +152,13 @@ div.logo:hover {
 	border-top: 1px solid #fff;
 }
 #climbingIcon {
-	background-image: url("../Assets/Climbing-area.svg");
+	background-image: url("../Climbing-area.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
 }
 #climbingIcon:hover {
-	background-image: url("../Assets/Climbing-area-hover.svg");
+	background-image: url("../Climbing-area-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
@@ -169,7 +169,7 @@ div.logo:hover {
 	transition: all 0.3s ease;
 }
 #climbingIcon.active {
-	background-image: url("../Assets/Climbing-area-hover.svg");
+	background-image: url("../Climbing-area-hover.svg");
 	background-size: 70px 70px;
 	height: 70px;
 	width: 70px;
