@@ -115,21 +115,51 @@ map.on('style.load', function () {
 	map.setFilter('ranger_station', ['==', 'TYPE', 'ranger_station']); // layer, attribute, name
 
 	map.addLayer({
+		"id": "toilet",
+		"type": "symbol",
+		"source": "points",
+		"filter": ["==", "$type", "Point"],
+		"layout": {
+			"icon-image": "Toilet-icon",
+			"icon-size": 1,
+			"icon-anchor": "bottom",
+			"visibility": "none",
+		}
+	});
+
+	map.setFilter('toilet', ['==', 'TYPE', 'toilet']); // layer, attribute, name
+
+	map.addLayer({
+		"id": "permit_station",
+		"type": "symbol",
+		"source": "points",
+		"filter": ["==", "$type", "Point"],
+		"layout": {
+			"icon-image": "Permit-icon",
+			"icon-size": 1,
+			"icon-anchor": "bottom",
+			"visibility": "none",
+		}
+	});
+
+	map.setFilter('permit_station', ['==', 'TYPE', 'permit_station']); // layer, attribute, name
+
+	map.addLayer({
 		"id": "services",
 		"type": "symbol",
 		"source": "points",
 		"filter": ["==", "$type", "Point"],
 		"layout": {
-			"icon-image": "boston-t",
+			"icon-image": "Market-icon",
 			"icon-size": 1,
-			"icon-anchor": "center",
+			"icon-anchor": "bottom",
 			"visibility": "none",
 		}
 	});
 
 	// Multiple array filter
 	var typeFilter = ['match', ['get', 'TYPE'],
-		['bar', 'fast_food', 'hotel', 'convenience', 'restaurant', 'supermarket', 'outdoor_shop'], true, false
+		['convenience', 'supermarket'], true, false
 	];
 	map.setFilter("services", typeFilter);
 });
@@ -138,7 +168,7 @@ map.on('style.load', function () {
 // LOAD ALL POINT LAYERS WITH NAMES FOR LIST
 /////////////////////////////////////////////////////////////
 
-var stores = "https://raw.githubusercontent.com/aarontaveras/Yosemite_Trailheads/master/Yosemite_Trailheads.geojson";
+var stores = "https://raw.githubusercontent.com/aarontaveras/Yosemite_Trailheads/master/Yosemite_Trailheads_3_24.geojson";
 
 map.on('load', () => {
 	fetch(stores)
@@ -303,7 +333,7 @@ function buildLocationList(data) {
 
 map.on('click', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
-		layers: ["drinking", "high_camp", "climbing_area", "camp_site", "ranger_station", "services"] // Add layers
+		layers: ["high_camp", "climbing_area", "camp_site", "ranger_station", "services", "toilet", "permit_station"] // Add layers
 	});
 
 	if (!features.length) {
@@ -329,15 +359,13 @@ map.on('click', function (e) {
 		.addTo(map);
 });
 
-
-
 /////////////////////////////////////////////////////////////
 // MOUSEOVERS
 /////////////////////////////////////////////////////////////
 
 map.on('mousemove', function (e) {
 	var features = map.queryRenderedFeatures(e.point, {
-		layers: ["drinking", "high_camp", "climbing_area", "locations", "camp_site", "ranger_station", "services"] // Add layers
+		layers: ["high_camp", "climbing_area", "locations", "camp_site", "ranger_station", "services", "toilet", "permit_station"] // Add layers
 	});
 
 	map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
@@ -382,7 +410,7 @@ document.getElementById("drinkingIcon").onclick = function (e) { // Change butto
 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
 			this.className = '';
 		} else {
-			this.className = 'active';
+			this.className = 'on';
 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 		}
 	}
@@ -392,7 +420,7 @@ document.getElementById("drinkingIcon").onclick = function (e) { // Change butto
 // Toggle high camp layer
 var togglehighcampId = ["high_camp"]; // Add layer
 
-document.getElementById("backcountryIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+document.getElementById("highcampIcon").onclick = function (e) { // Change button name, getElementById('Replace')
 	for (var index in togglehighcampId) {
 		var clickedLayer = togglehighcampId[index];
 		e.preventDefault();
@@ -404,7 +432,7 @@ document.getElementById("backcountryIcon").onclick = function (e) { // Change bu
 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
 			this.className = '';
 		} else {
-			this.className = 'active';
+			this.className = 'on';
 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 		}
 	}
@@ -426,7 +454,7 @@ document.getElementById("climbingIcon").onclick = function (e) { // Change butto
 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
 			this.className = '';
 		} else {
-			this.className = 'active';
+			this.className = 'on';
 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 		}
 	}
@@ -448,7 +476,7 @@ document.getElementById("campsiteIcon").onclick = function (e) { // Change butto
 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
 			this.className = '';
 		} else {
-			this.className = 'active';
+			this.className = 'on';
 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 		}
 	}
@@ -470,7 +498,51 @@ document.getElementById("rangerIcon").onclick = function (e) { // Change button 
 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
 			this.className = '';
 		} else {
-			this.className = 'active';
+			this.className = 'on';
+			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+		}
+	}
+
+};
+
+// Toggle permit station layer
+var togglerangerId = ["permit_station"]; // Add layer
+
+document.getElementById("permitIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+	for (var index in togglerangerId) {
+		var clickedLayer = togglerangerId[index];
+		e.preventDefault();
+		e.stopPropagation();
+
+		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+		if (visibility === 'none') {
+			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+			this.className = '';
+		} else {
+			this.className = 'on';
+			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+		}
+	}
+
+};
+
+// Toggle toilet layer
+var toggletoiletId = ["toilet"]; // Add layer
+
+document.getElementById("bathroomIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+	for (var index in toggletoiletId) {
+		var clickedLayer = toggletoiletId[index];
+		e.preventDefault();
+		e.stopPropagation();
+
+		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+		if (visibility === 'none') {
+			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+			this.className = '';
+		} else {
+			this.className = 'on';
 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 		}
 	}
@@ -480,7 +552,7 @@ document.getElementById("rangerIcon").onclick = function (e) { // Change button 
 // Toggle food and lodging layer
 var toggleservicesId = ["services"]; // Add layer
 
-document.getElementById("lodgingIcon").onclick = function (e) { // Change button name, getElementById('Replace')
+document.getElementById("marketIcon").onclick = function (e) { // Change button name, getElementById('Replace')
 	for (var index in toggleservicesId) {
 		var clickedLayer = toggleservicesId[index];
 		e.preventDefault();
@@ -492,7 +564,7 @@ document.getElementById("lodgingIcon").onclick = function (e) { // Change button
 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
 			this.className = '';
 		} else {
-			this.className = 'active';
+			this.className = 'on';
 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 		}
 	}
@@ -515,10 +587,10 @@ window.addEventListener('keydown', handleFirstTab);
 
 // Keep button active when clicked
 $('button').click(function () {
-	if ($(this).hasClass('active')) {
-		$(this).removeClass('active');
+	if ($(this).hasClass('on')) {
+		$(this).removeClass('on');
 	} else {
-		$(this).addClass('active');
+		$(this).addClass('on');
 	}
 });
 
