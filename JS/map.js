@@ -372,27 +372,7 @@ map.on('mousemove', function (e) {
 });
 
 /////////////////////////////////////////////////////////////
-// ADD POPUPS TO ALL POLYGONS
-/////////////////////////////////////////////////////////////
-
-//map.on('click', "trail-mileage", function (e) {
-//new mapboxgl.Popup()
-//.setLngLat(e.lngLat)
-//.setHTML(e.features[0].properties.MILES + " miles")
-//.addTo(map);
-//});
-
-/////////////////////////////////////////////////////////////
-// MOUSEOVERS
-/////////////////////////////////////////////////////////////
-
-//map.on('mousemove', "trail-mileage", function (e) {
-// Change the cursor style as a UI indicator.
-//map.getCanvas().style.cursor = 'pointer';
-//});
-
-/////////////////////////////////////////////////////////////
-// TOGGLE A SINGLE LAYER
+// TOGGLE SINGLE LAYERS
 /////////////////////////////////////////////////////////////
 
 // Toggle trailhead layer
@@ -592,6 +572,16 @@ $('button').click(function () {
 	} else {
 		$(this).addClass('on');
 	}
+});
+
+// Search
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#listings .item").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
 });
 
 // End JavaScript

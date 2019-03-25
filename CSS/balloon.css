@@ -16,7 +16,7 @@ button[data-balloon] {
     -ms-transition: all 0.18s ease-out 0.18s;
     -o-transition: all 0.18s ease-out 0.18s;
     transition: all 0.18s ease-out 0.18s;
-    font-family: 'Lato', Helvetica, sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     font-weight: 200 !important;
     font-style: normal !important;
     text-shadow: none !important;
