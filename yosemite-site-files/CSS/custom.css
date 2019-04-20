@@ -543,7 +543,7 @@ a.mapboxgl-ctrl-logo {
 	border-bottom: 1px solid #69dd76;
 	height: 60px;
 	overflow: hidden;
-	background-color: #69dd76;
+	background-color: #91E69B;
 }
 .heading h5 {
 	margin-left: 75px;
@@ -624,7 +624,7 @@ a.mapboxgl-ctrl-logo {
 }
 
 ::-webkit-scrollbar-thumb {
- background: #69dd76;
+ background: #91E69B;
  border-radius: 0;
 }
 /* Main Block Styles */
