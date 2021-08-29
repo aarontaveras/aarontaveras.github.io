@@ -264,9 +264,9 @@ function createPopUp(currentFeature) {
 			'top': [0, 0],
 			'top-left': [0, 0],
 			'top-right': [0, 0],
-			'bottom': [0, -40],
-			'bottom-left': [0, -40],
-			'bottom-right': [0, -40],
+			'bottom': [0, -30],
+			'bottom-left': [0, -30],
+			'bottom-right': [0, -30],
 			'left': [18, -22],
 			'right': [-18, -22],
 		}
