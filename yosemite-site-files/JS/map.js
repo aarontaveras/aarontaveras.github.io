@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 // Initiate map
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hZ3JhbXN0dWRpbyIsImEiOiJjanNsZHBsY2wwOGFvNDlueDBkZDExdWdtIn0.9XMxTQbfO7-_7JVTT4vtZg';
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWFyb250YXZlcmFzIiwiYSI6ImNrc3doMnZqYzEyeW8yeXMybTVybGg4bHYifQ.ONQjSw-O7Z7b5a3nUOBcKw';
 
 var bounds = [
 	[-120.877490, 37.227085], // Southwest coordinates
@@ -18,7 +18,7 @@ var bounds = [
 
 var map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/anagramstudio/cjts7b6c58xy31foc7i5r4q3d',
+	style: 'mapbox://styles/aarontaveras/ckswh4k3u2kx217o6v5nlkq3l',
 	center: [-119.573159, 37.739671],
 	zoom: 11,
 	minZoom: 10,
@@ -283,20 +283,20 @@ function createPopUp(currentFeature) {
 
 function buildLocationList(data) {
 	for (i = 0; i < data.features.length; i++) {
-		// Create an array of all the stores and their properties
+		// Create an array of all the records and their properties
 		var currentFeature = data.features[i];
 		// Shorten data.feature.properties to just `prop` so we're not
 		// writing this long form over and over again.
 		var prop = currentFeature.properties;
 		// Select the listing container in the HTML
 		var listings = document.getElementById('listings');
-		// Append a div with the class 'item' for each store
+		// Append a div with the class 'item' for each record
 		var listing = listings.appendChild(document.createElement('div'));
 		listing.className = 'item';
 		listing.id = "listing-" + i;
 
-		// Create a new link with the class 'title' for each store
-		// and fill it with the store address
+		// Create a new link with the class 'title' for each record
+		// and fill it with the record information
 		var link = listing.appendChild(document.createElement('a'));
 		link.href = '#';
 		link.className = 'title';
