@@ -175,10 +175,10 @@ map.on('style.load', function () {
 // LOAD ALL POINT LAYERS WITH NAMES FOR LIST
 /////////////////////////////////////////////////////////////
 
-var stores = "https://raw.githubusercontent.com/aarontaveras/yosemite_trailheads/master/yosemite_trailheads_update.geojson";
+var records = "https://raw.githubusercontent.com/aarontaveras/yosemite_trailheads/master/yosemite_trailheads_update.geojson";
 
 map.on('load', () => {
-	fetch(stores)
+	fetch(records)
 		.then(response => response.json())
 		.then((data) => {
 			map.addSource("locations", {
@@ -229,8 +229,8 @@ map.on('click', function (e) {
 
 		var selectedFeature = clickedPoint.properties.address;
 
-		for (var i = 0; i < stores.features.length; i++) {
-			if (stores.features[i].properties.address === selectedFeature) {
+		for (var i = 0; i < records.features.length; i++) {
+			if (records.features[i].properties.address === selectedFeature) {
 				selectedFeatureIndex = i;
 			}
 		}
